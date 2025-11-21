@@ -1,0 +1,440 @@
+﻿@{
+    ViewData["Title"] = "Home";
+}
+
+<!-- HERO -->
+<section id="hero" class="hero">
+    <div class="container hero-flex">
+        <div class="hero-text">
+            <p class="eyebrow">.NET Developer • Full-Stack</p>
+            <h1>Hi, I’m <span class="accent">Federico Stimpfl</span>.</h1>
+            <p class="sub">
+                I design, build, and maintain clean, secure, and scalable web applications powered by ASP.NET Core, Entity Framework Core, and modern front-end technologies.
+                My focus is on reliability, maintainability, and performance — ensuring software that grows with the business.
+            </p>
+
+            <div class="cta">
+                <a class="btn" href="#projects">View Projects</a>
+                <a class="btn btn-alt" href="@Url.Action("Contact", "Home")">Contact Me</a>
+            </div>
+        </div>
+
+        <div class="hero-photo-block">
+            <div class="social-links">
+                <a href="https://linkedin.com/in/stimpfl" target="_blank" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://www.youtube.com/@@Techluxfut" target="_blank" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                <a href="https://instagram.com/federicostimpfl" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://x.com/stimpfldev" target="_blank" title="Twitter / X"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="https://www.facebook.com/federico.stimpfl/" target="_blank" title="Facebook"><i class="fa-brands fa-facebook"></i></a>
+            </div>
+
+            <img src="~/images/fede.jpg" alt="Federico Stimpfl" class="home-photo" />
+
+            <p class="cv-download">
+                <span>Want to know more about my work?</span><br />
+                <a href="~/files/Federico_Stimpfl_CV_EN.pdf" download class="btn small">
+                    <i class="fa-solid fa-download"></i> Download CV
+                </a>
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="section reveal">
+    
+    <div class="container">
+        <h2>About</h2>
+        <p>
+            Senior .NET Software Engineer | Application Support Specialist (L2/L3) | Full-Stack Developer.
+            I’m a technology professional with over 25 years of experience specializing in the .NET ecosystem and full-stack development for enterprise environments.
+            I provide advanced application support (L2/L3), performance optimization, and functional enhancements for mission-critical systems...
+            Core Strengths: NET Software Development | C# | .NET Core | ASP.NET MVC| Dapper | Blazor | Razor | Entity Framework |SQL | PL/SQL | Azure | Git | HTML5 | CSS3 | JavaScript | API RESTful | gRPC | SignalR | Minimal APIs | Software Integration | DevOps | Agile | SOLID Principles | Algorithms | Incident & Bug Troubleshooting | Ticketing Systems (Remedy / Jira) | Application Support | Debugging | CI/CD | xUnit | Moq | ADO.NET
+        </p>
+    </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="projects section">
+    <div class="container">
+        <h2>Featured Projects</h2>
+
+        <div class="cards">
+            <div class="card">
+                <div class="card-head">
+                    <h3>Reputation360 Platform</h3>
+                    <p class="stack">ASP.NET Core • EF Core • Azure • SignalR</p>
+                </div>
+                <p class="card-text">
+                    SaaS solution for managing and improving company reputation.
+                    Features real-time dashboards, role-based access, and optimized performance.
+                </p>
+                <div class="card-actions">
+                    <a href="#" class="btn small" data-bs-toggle="modal" data-bs-target="#project1Modal">View Project</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-head">
+                    <h3>TaskFlow Manager</h3>
+                    <p class="stack">ASP.NET MVC • EF Core • Redis • React</p>
+                </div>
+                <p class="card-text">
+                    Productivity platform for technical teams.
+                </p>
+                <div class="card-actions">
+                    <a href="#" class="btn small" data-bs-toggle="modal" data-bs-target="#project2Modal">View Project</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-head">
+                    <h3>InventoryPro Suite</h3>
+                    <p class="stack">ASP.NET Core • SQL Server • Blazor</p>
+                </div>
+                <p class="card-text">
+                    Enterprise inventory system with predictive analytics.
+                </p>
+                <div class="card-actions">
+                    <a href="#" class="btn small" data-bs-toggle="modal" data-bs-target="#project3Modal">View Project</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-head">
+                    <h3>FinanceGuard API</h3>
+                    <p class="stack">.NET 8 • Minimal API • JWT • EF Core</p>
+                </div>
+                <p class="card-text">
+                    Secure financial API for fraud detection.
+                </p>
+                <div class="card-actions">
+                    <a href="#" class="btn small" data-bs-toggle="modal" data-bs-target="#project4Modal">View Project</a>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</section>
+
+<!-- MODALS (fuera de las secciones) -->
+<!-- MODALS (fuera del flujo principal, al final del body) -->
+<div class="modal fade" id="project1Modal" tabindex="-1" aria-labelledby="project1ModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content" style="background-color:#2a3440; color:#fff;">
+            <div class="modal-header">
+                <h5 class="modal-title" id="project1ModalLabel">Reputation360 Platform</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Reputation360 is a SaaS solution built with ASP.NET Core and EF Core...</p>
+                <p><strong>Role:</strong> Lead Developer & Architect</p>
+                <p><strong>Stack:</strong> ASP.NET Core • EF Core • Azure • SignalR</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="project2Modal" tabindex="-1" aria-labelledby="project2ModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content" style="background-color:#2a3440; color:#fff;">
+            <div class="modal-header">
+                <h5 class="modal-title" id="project2ModalLabel">TaskFlow Manager</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>TaskFlow Manager is an internal productivity tool built with ASP.NET MVC and EF Core...</p>
+                <p><strong>Role:</strong> Lead Full-Stack Developer</p>
+                <p><strong>Stack:</strong> ASP.NET MVC • EF Core • Redis • React • Docker</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="project3Modal" tabindex="-1" aria-labelledby="project3ModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content" style="background-color:#2a3440; color:#fff;">
+            <div class="modal-header">
+                <h5 class="modal-title" id="project3ModalLabel">InventoryPro Suite</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <p>Inventory system with predictive analytics...</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="project4Modal" tabindex="-1" aria-labelledby="project4ModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content" style="background-color:#2a3440; color:#fff;">
+            <div class="modal-header">
+                <h5 class="modal-title" id="project4ModalLabel">FinanceGuard API</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <p>Financial API for fraud detection using .NET 8...</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+<!-- Modal para el artículo "Output Caching in .NET 8 — A Pragmatic Guide" -->
+<div class="modal fade" id="article1Modal" tabindex="-1" aria-labelledby="article1ModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content" style="background-color:#2a3440; color:#fff;">
+            <div class="modal-header">
+                <h5 class="modal-title" id="article1ModalLabel">Output Caching in .NET 8 — A Pragmatic Guide</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" style="line-height:1.6;">
+                <p>
+                    <strong>Output Caching</strong> in ASP.NET Core 8 is a lightweight and powerful way to boost performance by reusing full responses that don’t change frequently.
+                    Instead of recalculating a view or API response on every request, .NET 8 can store and serve it directly from cache — dramatically reducing CPU, DB, and I/O usage.
+                </p>
+
+                <h6>🧠 When to Use It</h6>
+                <p>
+                    Output caching shines for endpoints where the response remains the same for multiple users — such as public pages, product listings, or slow reports.
+                    You can safely cache those responses for a short or long period and serve them instantly.
+                </p>
+
+                <h6>⚙️ How It Works</h6>
+                <p>
+                    .NET 8 introduces a modern middleware-based implementation that replaces the old <code>[ResponseCache]</code> attribute.
+                    You simply register it once in <code>Program.cs</code> and use the <code>[OutputCache]</code> attribute wherever needed.
+                </p>
+
+                <pre><code>// Program.cs
+var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddOutputCache();
+
+var app = builder.Build();
+app.UseOutputCache();
+
+// Controller or Minimal API endpoint
+app.MapGet("/products", async (MyDbContext db) =>
+{
+    return await db.Products.ToListAsync();
+})
+.WithName("GetProducts")
+.CacheOutput(p => p.Expire(TimeSpan.FromSeconds(60))); // Cached for 1 min
+</code></pre>
+
+                <h6>🚀 Benefits</h6>
+                <ul>
+                    <li>🔹 Easy to enable — minimal configuration.</li>
+                    <li>🔹 Great performance boost for static or semi-dynamic endpoints.</li>
+                    <li>🔹 Compatible with distributed caches (e.g., Redis).</li>
+                    <li>🔹 Built directly into the ASP.NET Core middleware pipeline.</li>
+                </ul>
+
+                <h6>⚡ Real-World Tip</h6>
+                <p>
+                    Combine Output Caching with <code>IMemoryCache</code> or <code>IDistributedCache</code> for layered performance.
+                    Keep it short-lived (e.g., 30–120 seconds) to ensure the data stays fresh while still reducing load on the DB.
+                </p>
+
+                <h6>✅ Conclusion</h6>
+                <p>
+                    Output Caching in .NET 8 is a simple yet powerful tool for boosting response times without adding infrastructure complexity.
+                    In high-traffic apps, it can easily reduce backend load by 50–70% with just a few lines of configuration.
+                </p>
+
+                <p class="text-muted"><em>5 min read • Published Nov 10, 2025</em></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal para "Entity Framework Core 8 — Clean Data Access Patterns" -->
+<div class="modal fade" id="article2Modal" tabindex="-1" aria-labelledby="article2ModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content" style="background-color:#2a3440; color:#fff;">
+            <div class="modal-header">
+                <h5 class="modal-title" id="article2ModalLabel">Entity Framework Core 8 — Clean Data Access Patterns</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" style="line-height:1.6;">
+                <p>
+                    With <strong>Entity Framework Core 8</strong>, developers have more tools than ever to simplify data access while keeping their architecture clean, testable, and maintainable.
+                    But using EF efficiently requires discipline — especially in larger applications.
+                </p>
+
+                <h6>🏗️ Clean Architecture Context</h6>
+                <p>
+                    EF Core works best when separated from your domain logic.
+                    Instead of scattering queries inside controllers, move them into repositories or data services that your application layer can consume.
+                </p>
+
+<pre><code>// Example: Generic Repository
+public interface IRepository&lt;T&gt; where T : class
+{
+    Task&lt;T&gt; GetByIdAsync(int id);
+    Task&lt;IEnumerable&lt;T&gt;&gt; GetAllAsync();
+    Task AddAsync(T entity);
+    void Update(T entity);
+    void Delete(T entity);
+    Task SaveAsync();
+}
+</code></pre>
+
+                <h6>⚡ Common Pitfalls</h6>
+                <ul>
+                    <li>Mixing DbContext logic inside controllers.</li>
+                    <li>Querying too much data (no pagination or filtering).</li>
+                    <li>Forgetting to track entity states properly.</li>
+                </ul>
+
+                <h6>🚀 Recommended Pattern</h6>
+                <p>
+                    Keep your <code>DbContext</code> short-lived and scoped per request.
+                    Use <code>AsNoTracking()</code> for read-only operations to improve performance.
+                </p>
+
+<pre><code>// Example usage
+var users = await _context.Users
+    .AsNoTracking()
+    .Where(u =&gt; u.IsActive)
+    .ToListAsync();
+</code></pre>
+
+                <h6>✅ Key Takeaway</h6>
+                <p>
+                    EF Core 8 is powerful — but only when used cleanly.
+                    Separate concerns, use async patterns everywhere, and let EF handle what it does best: tracking and persistence.
+                </p>
+
+                <p class="text-muted"><em>4 min read • Published Oct 28, 2025</em></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal para "Building Resilient APIs with ASP.NET Core and Polly" -->
+<div class="modal fade" id="article3Modal" tabindex="-1" aria-labelledby="article3ModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content" style="background-color:#2a3440; color:#fff;">
+            <div class="modal-header">
+                <h5 class="modal-title" id="article3ModalLabel">Building Resilient APIs with ASP.NET Core and Polly</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" style="line-height:1.6;">
+                <p>
+                    Modern APIs need to be resilient against network issues, transient errors, and external dependencies.
+                    <strong>Polly</strong>, integrated natively with ASP.NET Core, provides a powerful way to achieve this without cluttering your code.
+                </p>
+
+                <h6>🧩 What Is Polly?</h6>
+                <p>
+                    Polly is a fault-handling library that helps you define retry, circuit-breaker, timeout, and fallback policies declaratively.
+                </p>
+
+<pre><code>// Example: Register HttpClient with retry policy
+builder.Services.AddHttpClient("WeatherClient")
+    .AddTransientHttpErrorPolicy(p =&gt;
+        p.WaitAndRetryAsync(3, attempt =&gt; TimeSpan.FromSeconds(Math.Pow(2, attempt))));
+</code></pre>
+
+                <h6>⚙️ Circuit Breaker Example</h6>
+<pre><code>p.CircuitBreakerAsync(
+    handledEventsAllowedBeforeBreaking: 5,
+    durationOfBreak: TimeSpan.FromSeconds(30)
+);</code></pre>
+
+                <h6>✅ Benefits</h6>
+                <ul>
+                    <li>Improved reliability of API-to-API communication.</li>
+                    <li>Reduced risk of cascading failures.</li>
+                    <li>Better user experience under transient network issues.</li>
+                </ul>
+
+                <h6>🧠 Real-World Use</h6>
+                <p>
+                    Combine Polly with centralized logging (like Serilog) to monitor retries and circuit events.
+                    You’ll quickly identify unstable dependencies before they become outages.
+                </p>
+
+                <p class="text-muted"><em>6 min read • Published Sep 15, 2025</em></p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal para "Building Resilient APIs with ASP.NET Core and Polly" -->
+<div class="modal fade" id="article3Modal" tabindex="-1" aria-labelledby="article3ModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content" style="background-color:#2a3440; color:#fff;">
+            <div class="modal-header">
+                <h5 class="modal-title" id="article3ModalLabel">Building Resilient APIs with ASP.NET Core and Polly</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" style="line-height:1.6;">
+                <p>
+                    Modern APIs need to be resilient against network issues, transient errors, and external dependencies.
+                    <strong>Polly</strong>, integrated natively with ASP.NET Core, provides a powerful way to achieve this without cluttering your code.
+                </p>
+
+                <h6>🧩 What Is Polly?</h6>
+                <p>
+                    Polly is a fault-handling library that helps you define retry, circuit-breaker, timeout, and fallback policies declaratively.
+                </p>
+
+<pre><code>// Example: Register HttpClient with retry policy
+builder.Services.AddHttpClient("WeatherClient")
+    .AddTransientHttpErrorPolicy(p =&gt;
+        p.WaitAndRetryAsync(3, attempt =&gt; TimeSpan.FromSeconds(Math.Pow(2, attempt))));
+</code></pre>
+
+                <h6>⚙️ Circuit Breaker Example</h6>
+<pre><code>p.CircuitBreakerAsync(
+    handledEventsAllowedBeforeBreaking: 5,
+    durationOfBreak: TimeSpan.FromSeconds(30)
+);</code></pre>
+
+                <h6>✅ Benefits</h6>
+                <ul>
+                    <li>Improved reliability of API-to-API communication.</li>
+                    <li>Reduced risk of cascading failures.</li>
+                    <li>Better user experience under transient network issues.</li>
+                </ul>
+
+                <h6>🧠 Real-World Use</h6>
+                <p>
+                    Combine Polly with centralized logging (like Serilog) to monitor retries and circuit events.
+                    You’ll quickly identify unstable dependencies before they become outages.
+                </p>
+
+                <p class="text-muted"><em>6 min read • Published Sep 15, 2025</em></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- WRITING -->
+<section class="section writing">
+    <div class="container">
+        <h2>Writing</h2>
+        <ul class="posts">
+            <li>
+                <a href="#" data-bs-toggle="modal" data-bs-target="#article1Modal">Output Caching in .NET 8 — A Pragmatic Guide</a>
+                <span class="meta">5 min • Nov 10, 2025</span>
+            </li>
+            <li>
+                <a href="#" data-bs-toggle="modal" data-bs-target="#article2Modal">Entity Framework Core 8 — Clean Data Access Patterns</a>
+                <span class="meta">4 min • Oct 28, 2025</span>
+            </li>
+            <li>
+                <a href="#" data-bs-toggle="modal" data-bs-target="#article3Modal">Building Resilient APIs with ASP.NET Core and Polly</a>
+                <span class="meta">6 min • Sep 15, 2025</span>
+            </li>
+        </ul>
+    </div>
+</section>

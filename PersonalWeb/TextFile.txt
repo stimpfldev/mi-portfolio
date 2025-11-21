@@ -1,0 +1,3 @@
+﻿falta poner en ingles todos los textos activos y emergentes en ingles de contacto
+que el boton de la nav bar de project lleve a featured project
+el problema del footer que tapa articulos

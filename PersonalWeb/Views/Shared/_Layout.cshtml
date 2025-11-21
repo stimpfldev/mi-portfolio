@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - PersonalWeb</title>
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/PersonalWeb.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+
+<body>
+    <a class="visually-hidden-focusable" href="#main">Saltar al contenido</a>
+
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a asp-controller="Home" asp-action="Index">
+                    <img src="~/images/logo.png" alt="Federico Stimpfl Logo" class="site-logo" />
+                </a>
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="@Url.Action("Index", "Home")#hero">Home</a></li>
+                <li><a href="@Url.Action("Index", "Home")#about">About</a></li>
+                <li><a href="@Url.Action("Index", "Home")#projects">Projects</a></li>
+                <li><a asp-controller="Home" asp-action="Contact">Contact</a></li>
+            </ul>
+
+            <div class="menu-toggle" id="mobile-menu">☰</div>
+        </nav>
+    </header>
+
+    <div class="nav-overlay" id="navOverlay"></div>
+
+    <main id="main" role="main">
+        @RenderBody()
+    </main>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2025 - PersonalWeb -
+            <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
