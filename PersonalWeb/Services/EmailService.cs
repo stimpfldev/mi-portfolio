@@ -9,7 +9,6 @@ namespace PersonalWeb.Services
 
         public EmailService(IConfiguration config)
         {
-            // Leer la clave desde variable de entorno (Render) o desde appsettings local
             _apiKey = Environment.GetEnvironmentVariable("SENDGRID_API_KEY")
                      ?? config["SendGrid:ApiKey"];
         }
@@ -18,10 +17,10 @@ namespace PersonalWeb.Services
         {
             var client = new SendGridClient(_apiKey);
 
-            // Cambiá este email al destino real donde vos querés recibir los mensajes
             var to = new EmailAddress("federicosdev@gmail.com", "Fede Portfolio");
 
-            var from = new EmailAddress("no-reply@tudominio.com", "Portfolio Website");
+            // 🔥 FROM válido (usá el que verificaste en SendGrid)
+            var from = new EmailAddress("federicosdev@gmail.com", "Portfolio Website");
 
             var subject = "Nuevo mensaje desde tu sitio web";
 

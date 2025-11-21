@@ -4,4 +4,3 @@ achicar el tamaño del pdf del curriculum
 
 agregar mas esttilos visuales de imapcto
 se pueden ocular las urls de cada seccion ?
-incluir copy right en pie de pagina

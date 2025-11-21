@@ -41,7 +41,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2025 - PersonalWeb -
+            <p><i class="fa-regular fa-copyright"></i> @DateTime.Now.Year Federico J. Stimpfl</p>
             <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
@@ -53,9 +53,7 @@
     @await RenderSectionAsync("Scripts", required: false)
 
 
-    <footer class="footer">
-        <p><i class="fa-regular fa-copyright"></i> @DateTime.Now.Year Federico J. Stimpfl</p>
-    </footer>
+
 
 
 </body>
