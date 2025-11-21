@@ -1,4 +1,4 @@
-﻿el envio de mails en https://federicosdev.onrender.com/Home/Contact se queda pendiente y no se envia nunca. finaliza en We couldn’t send your message. Please check your email configuration or try again later.
+﻿
 los projects deben estar distribuidos en 4 por 4
 achicar el tamaño del pdf del curriculum
 agregar texto vendedor a los projects

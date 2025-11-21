@@ -1,6 +1,7 @@
-﻿using System.Diagnostics;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using PersonalWeb.Models;
+using PersonalWeb.Services;
+using System.Diagnostics;
 using System.Net;
 using System.Net.Mail;
 namespace PersonalWeb.Controllers
@@ -33,36 +34,30 @@ namespace PersonalWeb.Controllers
 
         // 🧱 Nuevo: Acción POST (enviar correo)
         [HttpPost]
-        public IActionResult Contact(ContactModel model)
+        [IgnoreAntiforgeryToken]
+        public async Task<IActionResult> Contact(ContactModel model, [FromServices] EmailService emailService)
         {
             if (!ModelState.IsValid)
                 return View(model);
 
-            try
+            var ok = await emailService.SendEmailAsync(
+                model.Email,
+                model.Name,
+                model.Message
+            );
+
+            if (ok)
             {
-                using (var client = new SmtpClient("smtp.gmail.com", 587))
-                {
-                    client.Credentials = new NetworkCredential("federicosdev@gmail.com", "bbli kfal yoko xytj");
-                    client.EnableSsl = true;
-
-                    var mail = new MailMessage();
-                    mail.From = new MailAddress("federicosdev@gmail.com");
-                    mail.To.Add("federicosdev@gmail.com");
-                    mail.Subject = "Nuevo mensaje desde el sitio web";
-                    mail.Body = $"Nombre: {model.Name}\nCorreo: {model.Email}\nMensaje:\n{model.Message}";
-
-                    client.Send(mail);
-                }
-
-                ViewBag.Success = "✅ Tu mensaje fue enviado correctamente.";
+                ViewBag.Success = "Your message has been sent!";
                 ModelState.Clear();
             }
-            catch (Exception)
+            else
             {
-                ViewBag.Message = "We couldn’t send your message. Please check your email configuration or try again later.";
+                ViewBag.Message = "We couldn't send your message. Try again later.";
             }
 
             return View();
         }
+
     }
 }

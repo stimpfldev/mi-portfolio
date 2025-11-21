@@ -1,30 +1,31 @@
-using PersonalWeb.Models;
 using PersonalWeb.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// MVC
 builder.Services.AddControllersWithViews();
 
-builder.Services.Configure<SmtpSettings>(
-    builder.Configuration.GetSection("Smtp"));
-
-builder.Services.AddTransient<EmailService>();
-
+// EmailService (solo una vez, como singleton)
+builder.Services.AddSingleton<EmailService>();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// Error handling en producción
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
 }
+
+// Archivos estáticos
 app.UseStaticFiles();
 
+// Routing
 app.UseRouting();
 
+// (No usás autenticación)
 app.UseAuthorization();
 
+// Default Route
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
