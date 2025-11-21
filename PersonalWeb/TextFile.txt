@@ -1,3 +1,7 @@
-﻿falta poner en ingles todos los textos activos y emergentes en ingles de contacto
-que el boton de la nav bar de project lleve a featured project
-el problema del footer que tapa articulos
+﻿el envio de mails en https://federicosdev.onrender.com/Home/Contact se queda pendiente y no se envia nunca. finaliza en We couldn’t send your message. Please check your email configuration or try again later.
+los projects deben estar distribuidos en 4 por 4
+achicar el tamaño del pdf del curriculum
+agregar texto vendedor a los projects
+agregar mas esttilos visuales de imapcto
+se pueden ocular las urls de cada seccion ?
+incluir copy right en pie de pagina

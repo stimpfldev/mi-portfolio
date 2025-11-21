@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.Options;
 using PersonalWeb.Models;
-using System.Net;
+using SendGrid;
+using SendGrid.Helpers.Mail;
 using System.Net.Mail;
 using System.Threading.Tasks;
 
@@ -8,31 +9,34 @@ namespace PersonalWeb.Services
 {
     public class EmailService
     {
-        private readonly SmtpSettings _settings;
+        private readonly string _from;
+        private readonly string _apiKey;
 
-        public EmailService(IOptions<SmtpSettings> settings)
+        public EmailService(IOptions<SmtpSettings> smtp)
         {
-            _settings = settings.Value;
+            _from = smtp.Value.From;
+            _apiKey = Environment.GetEnvironmentVariable("SENDGRID_API_KEY")
+                     ?? throw new Exception("Falta SENDGRID_API_KEY");
         }
 
-        public async Task SendEmailAsync(string to, string subject, string body)
+        public async Task<bool> SendEmailAsync(string to, string subject, string message)
         {
-            using var client = new SmtpClient(_settings.Host, _settings.Port)
-            {
-                Credentials = new NetworkCredential(_settings.User, _settings.Pass),
-                EnableSsl = _settings.EnableSsl
-            };
+            var client = new SendGridClient(_apiKey);
 
-            var mail = new MailMessage()
-            {
-                From = new MailAddress(_settings.SenderEmail, _settings.SenderName),
-                Subject = subject,
-                Body = body
-            };
+            var fromEmail = new EmailAddress(_from);
+            var toEmail = new EmailAddress(to);
 
-            mail.To.Add(to);
+            var msg = MailHelper.CreateSingleEmail(
+                fromEmail,
+                toEmail,
+                subject,
+                plainTextContent: message,
+                htmlContent: $"<p>{message}</p>"
+            );
 
-            await client.SendMailAsync(mail);
+            var response = await client.SendEmailAsync(msg);
+
+            return response.IsSuccessStatusCode;
         }
     }
 }
