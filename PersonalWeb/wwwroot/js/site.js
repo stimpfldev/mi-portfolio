@@ -76,3 +76,32 @@ document.addEventListener("DOMContentLoaded", () => {
 
     elements.forEach(el => observer.observe(el));
 });
+//back cel
+// HISTORIAL DE MODALES – Manejo del botón “atrás” en móviles
+let modalAbiertoId = null;
+
+// Seleccionamos todos los modales de Bootstrap
+const modales = document.querySelectorAll('.modal');
+
+modales.forEach(modal => {
+    modal.addEventListener('show.bs.modal', () => {
+        modalAbiertoId = modal.id;
+        // Añadimos el estado al historial sin cambiar el hash
+        history.pushState({ modalId: modalAbiertoId }, '', window.location.pathname);
+    });
+
+    modal.addEventListener('hide.bs.modal', () => {
+        modalAbiertoId = null;
+    });
+});
+
+// Detectamos cuando el usuario usa el botón “atrás”
+window.addEventListener('popstate', event => {
+    if (event.state && event.state.modalId) {
+        const modalElement = document.getElementById(event.state.modalId);
+        const modalInstance = bootstrap.Modal.getInstance(modalElement);
+        if (modalInstance) {
+            modalInstance.hide();
+        }
+    }
+});

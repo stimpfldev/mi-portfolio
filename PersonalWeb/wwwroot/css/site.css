@@ -289,7 +289,16 @@
 .card-actions {
     display: flex;
     gap: 10px;
+
+
 }
+/* Botón de cierre */
+.btn-close {
+    filter: brightness(0) saturate(100%) invert(160%) sepia(10%) saturate(800%) hue-rotate(200deg) brightness(140%) contrast(100%);
+  
+}
+
+
 
 /* =========================
    CONTACTO
