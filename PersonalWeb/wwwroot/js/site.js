@@ -120,3 +120,21 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+const logoutBtn = document.getElementById("logoutBtn");
+
+if (logoutBtn) {
+    logoutBtn.addEventListener("click", function (e) {
+        e.preventDefault(); // Prevent navigation
+
+        // Ask the user before closing the tab
+        const confirmed = confirm("Are you sure you want to leave the site?");
+        if (confirmed) {
+            // Try to close the tab/window
+            window.open('', '_self', '');
+            window.close();
+
+            // Fallback if browser blocks close
+            window.location.href = "https://www.google.com"; // or your home page
+        }
+    });
+}
