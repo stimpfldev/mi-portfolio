@@ -23,9 +23,9 @@
             </div>
 
             <ul class="nav-links">
-                <li><a href="@Url.Action("Index", "Home")#hero">Home</a></li>
-                <li><a href="@Url.Action("Index", "Home")#about">About</a></li>
-                <li><a href="@Url.Action("Index", "Home")#projects">Projects</a></li>
+                <li><a href="/" data-scroll="hero">Home</a></li>
+                <li><a href="/" data-scroll="about">About</a></li>
+                <li><a href="/" data-scroll="projects">Projects</a></li>
                 <li><a asp-controller="Home" asp-action="Contact">Contact</a></li>
             </ul>
 
@@ -39,6 +39,11 @@
         @RenderBody()
     </main>
 
+    <section class="fade-in">
+        <h2>Sobre mí</h2>
+        <p>Contenido...</p>
+    </section>
+
     <footer class="border-top footer text-muted">
         <div class="container">
             <p><i class="fa-regular fa-copyright"></i> @DateTime.Now.Year Federico J. Stimpfl</p>
@@ -51,10 +56,6 @@
     <script src="~/js/site.js" asp-append-version="true"></script>
 
     @await RenderSectionAsync("Scripts", required: false)
-
-
-
-
 
 </body>
 </html>

@@ -13,59 +13,66 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // ===============================
-// Scroll suave entre vistas y secciones
+// Función para detectar si estás realmente en Home
+// ===============================
+function isHome() {
+    const p = location.pathname.toLowerCase();
+    return (p === "/" || p === "" || p === "/home" || p === "/home/index");
+}
+
+// ===============================
+// Scroll suave SIN HASHES
 // ===============================
 document.addEventListener("DOMContentLoaded", function () {
 
-    // 1️⃣ Si entrás con un hash (/#projects, /#about, etc.)
-    if (window.location.hash) {
-        setTimeout(() => {
-            const target = document.querySelector(window.location.hash);
-            if (target) target.scrollIntoView({ behavior: "smooth" });
-        }, 300);
-    }
-
-    // 2️⃣ Manejo de clics en enlaces con #
-    document.querySelectorAll('a[href*="#"]').forEach(link => {
+    document.querySelectorAll("[data-scroll]").forEach(link => {
         link.addEventListener("click", function (e) {
+            e.preventDefault();
 
-            // 🚨 EVITAR ROMPER MODALES BOOTSTRAP
-            if (this.hasAttribute("data-bs-toggle")) return;
+            const section = this.getAttribute("data-scroll");
 
-            const href = this.getAttribute("href");
-            const [path, hash] = href.split("#");
-
-            // Si no hay hash → dejo navegar normal
-            if (!hash) return;
-
-            const isHome =
-                window.location.pathname.toLowerCase().includes("/home/index") ||
-                window.location.pathname === "/" ||
-                window.location.pathname === "";
-
-            if (!isHome && path && !path.endsWith("Index")) {
-                return; // Permite cargar /Home/Index#about
+            // Si NO estoy en Home → ir al inicio y recordar destino
+            if (!isHome()) {
+                sessionStorage.setItem("scrollTo", section);
+                location.href = "/";
+                return;
             }
 
-            // 🚀 Scroll suave en la página Home
-            e.preventDefault();
-            const target = document.getElementById(hash);
+            // Si estoy en Home → scroll directo
+            const target = document.getElementById(section);
             if (target) {
                 target.scrollIntoView({ behavior: "smooth" });
-                history.pushState(null, "", `#${hash}`);
             }
         });
     });
+
+    // Si vengo desde otra página → scroll automático
+    const pending = sessionStorage.getItem("scrollTo");
+    if (pending) {
+        const t = document.getElementById(pending);
+        if (t) {
+            setTimeout(() => {
+                t.scrollIntoView({ behavior: "smooth" });
+            }, 60);
+        }
+        sessionStorage.removeItem("scrollTo");
+    }
 });
 
 // ===============================
-// Animación de entrada (scroll reveal)
+// Animación reveal
 // ===============================
-document.addEventListener("scroll", () => {
-    document.querySelectorAll(".reveal").forEach(el => {
-        const rect = el.getBoundingClientRect();
-        if (rect.top < window.innerHeight - 100) {
-            el.classList.add("visible");
-        }
-    });
+document.addEventListener("DOMContentLoaded", () => {
+    const elements = document.querySelectorAll(".reveal");
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.2 });
+
+    elements.forEach(el => observer.observe(el));
 });
