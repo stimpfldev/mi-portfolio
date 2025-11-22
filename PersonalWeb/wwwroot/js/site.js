@@ -1,13 +1,25 @@
 ﻿// ===============================
 // Navbar móvil
 // ===============================
+// Navbar móvil
 document.addEventListener("DOMContentLoaded", function () {
     const menuToggle = document.getElementById("mobile-menu");
     const navLinks = document.querySelector(".nav-links");
 
     if (menuToggle && navLinks) {
+        // Abrir/Cerrar al hacer clic en el ícono ☰
         menuToggle.addEventListener("click", () => {
             navLinks.classList.toggle("active");
+        });
+
+        // Cerrar el menú al hacer clic en cualquier opción del nav
+        const links = navLinks.querySelectorAll("a");
+        links.forEach(link => {
+            link.addEventListener("click", () => {
+                if (navLinks.classList.contains("active")) {
+                    navLinks.classList.remove("active");
+                }
+            });
         });
     }
 });
@@ -77,31 +89,34 @@ document.addEventListener("DOMContentLoaded", () => {
     elements.forEach(el => observer.observe(el));
 });
 //back cel
-// HISTORIAL DE MODALES – Manejo del botón “atrás” en móviles
-let modalAbiertoId = null;
+document.addEventListener('DOMContentLoaded', () => {
+    const modales = document.querySelectorAll('.modal');
 
-// Seleccionamos todos los modales de Bootstrap
-const modales = document.querySelectorAll('.modal');
+    modales.forEach(modal => {
+        const id = modal.id;
 
-modales.forEach(modal => {
-    modal.addEventListener('show.bs.modal', () => {
-        modalAbiertoId = modal.id;
-        // Añadimos el estado al historial sin cambiar el hash
-        history.pushState({ modalId: modalAbiertoId }, '', window.location.pathname);
+        // Mostrar: actualiza hash
+        modal.addEventListener('show.bs.modal', () => {
+            if (location.hash !== `#${id}`) {
+                history.pushState(null, '', `#${id}`);
+            }
+        });
+
+        // Ocultar: si el hash coincide, vuelve atrás
+        modal.addEventListener('hide.bs.modal', () => {
+            if (location.hash === `#${id}`) {
+                history.back();
+            }
+        });
     });
 
-    modal.addEventListener('hide.bs.modal', () => {
-        modalAbiertoId = null;
+    // Cierra el modal si el usuario va atrás
+    window.addEventListener('popstate', () => {
+        document.querySelectorAll('.modal.show').forEach(modal => {
+            const modalInstance = bootstrap.Modal.getInstance(modal);
+            if (modalInstance) {
+                modalInstance.hide();
+            }
+        });
     });
-});
-
-// Detectamos cuando el usuario usa el botón “atrás”
-window.addEventListener('popstate', event => {
-    if (event.state && event.state.modalId) {
-        const modalElement = document.getElementById(event.state.modalId);
-        const modalInstance = bootstrap.Modal.getInstance(modalElement);
-        if (modalInstance) {
-            modalInstance.hide();
-        }
-    }
 });

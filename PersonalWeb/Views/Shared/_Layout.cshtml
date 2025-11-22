@@ -25,6 +25,7 @@
             <ul class="nav-links">
                 <li><a href="/" data-scroll="hero">Home</a></li>
                 <li><a href="/" data-scroll="about">About</a></li>
+
                 <li><a href="/" data-scroll="projects">Projects</a></li>
                 <li><a asp-controller="Home" asp-action="Contact">Contact</a></li>
             </ul>
@@ -54,59 +55,8 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
-    <script>
-        // Guardar referencia al modal activo
-        let modalAbiertoId = null;
-
-        // Hook para todos los modales de Bootstrap
-        const modales = document.querySelectorAll('.modal');
-
-        modales.forEach(modal => {
-          modal.addEventListener('show.bs.modal', (e) => {
-            modalAbiertoId = modal.id;
-            // Agrega el modal al historial
-            history.pushState({ modalId: modalAbiertoId }, '', `#${modalAbiertoId}`);
-          });
-
-          modal.addEventListener('hide.bs.modal', (e) => {
-            modalAbiertoId = null;
-          });
-        });
-
-        // Cierra el modal si se presiona el botón "atrás"
-        window.addEventListener('popstate', (event) => {
-          if (event.state && event.state.modalId) {
-            const modal = bootstrap.Modal.getInstance(document.getElementById(event.state.modalId));
-            if (modal) modal.hide();
-          }
-        });
-    </script>
 
     @await RenderSectionAsync("Scripts", required: false)
-    <script>
-        let modalAbiertoId = null;
-
-        const modales = document.querySelectorAll('.modal');
-
-        modales.forEach(modal => {
-            modal.addEventListener('show.bs.modal', (e) => {
-                modalAbiertoId = modal.id;
-                // ⛔ NO modificar la URL con #, para evitar pantallas en blanco
-                history.pushState({ modalId: modalAbiertoId }, '', window.location.pathname);
-            });
-
-            modal.addEventListener('hide.bs.modal', (e) => {
-                modalAbiertoId = null;
-            });
-        });
-
-        window.addEventListener('popstate', (event) => {
-            if (event.state && event.state.modalId) {
-                const modal = bootstrap.Modal.getInstance(document.getElementById(event.state.modalId));
-                if (modal) modal.hide();
-            }
-        });
-    </script>
 
 </body>
 </html>
