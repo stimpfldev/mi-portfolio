@@ -1,42 +1,30 @@
 ﻿using SendGrid;
 using SendGrid.Helpers.Mail;
 
-namespace PersonalWeb.Services
+public class EmailService
 {
-    public class EmailService
+    private readonly string _apiKey;
+
+    public EmailService()
     {
-        private readonly string _apiKey;
+        _apiKey = Environment.GetEnvironmentVariable("SENDGRID_API_KEY");
 
-        public EmailService(IConfiguration config)
+        if (string.IsNullOrEmpty(_apiKey))
         {
-            _apiKey = Environment.GetEnvironmentVariable("SENDGRID_API_KEY")
-                     ?? config["SendGrid:ApiKey"];
+            throw new Exception("La API KEY de SendGrid no está configurada.");
         }
+    }
 
-        public async Task<bool> SendEmailAsync(string fromEmail, string fromName, string messageText)
-        {
-            var client = new SendGridClient(_apiKey);
+    public async Task<bool> SendEmailAsync(string fromEmail, string fromName, string messageText)
+    {
+        var client = new SendGridClient(_apiKey);
 
-            var to = new EmailAddress("federicosdev@gmail.com", "Fede Portfolio");
+        var from = new EmailAddress(fromEmail, fromName);
+        var to = new EmailAddress("TU_EMAIL_REAL@gmail.com", "Federico");
 
-            // 🔥 FROM válido (usá el que verificaste en SendGrid)
-            var from = new EmailAddress("federicosdev@gmail.com", "Portfolio Website");
+        var msg = MailHelper.CreateSingleEmail(from, to, "Nuevo mensaje", messageText, messageText);
 
-            var subject = "Nuevo mensaje desde tu sitio web";
-
-            var body = $"Nombre: {fromName}\nEmail: {fromEmail}\nMensaje:\n{messageText}";
-
-            var msg = MailHelper.CreateSingleEmail(
-                from,
-                to,
-                subject,
-                body,
-                body
-            );
-
-            var response = await client.SendEmailAsync(msg);
-
-            return response.IsSuccessStatusCode;
-        }
+        var response = await client.SendEmailAsync(msg);
+        return response.IsSuccessStatusCode;
     }
 }
