@@ -6,11 +6,15 @@
 <section id="hero" class="hero">
     <div class="container hero-flex">
         <div class="hero-text">
-            <p class="eyebrow">.NET Developer • Full-Stack</p>
+            <p class="eyebrow">Senior .NET Backend & L2/L3 Support</p>
             <h1>Hi, I’m <span class="accent">Federico Stimpfl</span>.</h1>
             <p class="sub">
-                I design, build, and maintain clean, secure, and scalable web applications powered by ASP.NET Core, Entity Framework Core, and modern front-end technologies.
-                My focus is on reliability, maintainability, and performance — ensuring software that grows with the business.
+                I design, build, and maintain mission-critical .NET applications and services —
+                from REST APIs and ASP.NET Core backends with Entity Framework Core and SQL Server,
+                to integrations and responsive UIs built with modern front-end technologies.
+                With a strong L2/L3 support background, I focus on reliability, maintainability,
+                and production troubleshooting so systems stay healthy, stable, and ready to grow
+                with the business.
             </p>
 
             <div class="cta">
@@ -22,10 +26,11 @@
         <div class="hero-photo-block">
             <div class="social-links">
                 <a href="https://linkedin.com/in/stimpfl" target="_blank" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
-                <a href="https://www.youtube.com/@@Techluxfut" target="_blank" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
-                <a href="https://instagram.com/federicostimpfl" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://github.com/stimpfldev" target="_blank" title="Twitter / X"><i class="fa-brands fa-github"></i></a>
                 <a href="https://x.com/stimpfldev" target="_blank" title="Twitter / X"><i class="fa-brands fa-x-twitter"></i></a>
-                <a href="https://www.facebook.com/federico.stimpfl/" target="_blank" title="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://instagram.com/federicostimpfl" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.youtube.com/@@Techluxfut" target="_blank" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+               
             </div>
 
             <img src="~/images/fede.jpg" alt="Federico Stimpfl" class="home-photo" />
@@ -42,15 +47,39 @@
 
 <!-- ABOUT -->
 <section id="about" class="section reveal">
-    
+
     <div class="container">
-        <h2>About</h2>
+        <h2>About Me</h2>
+
         <p>
-            Senior .NET Software Engineer | Application Support Specialist (L2/L3) | Full-Stack Developer.
-            I’m a technology professional with over 25 years of experience specializing in the .NET ecosystem and full-stack development for enterprise environments.
-            I provide advanced application support (L2/L3), performance optimization, and functional enhancements for mission-critical systems...
-            Core Strengths: NET Software Development | C# | .NET Core | ASP.NET MVC| Dapper | Blazor | Razor | Entity Framework |SQL | PL/SQL | Azure | Git | HTML5 | CSS3 | JavaScript | API RESTful | gRPC | SignalR | Minimal APIs | Software Integration | DevOps | Agile | SOLID Principles | Algorithms | Incident & Bug Troubleshooting | Ticketing Systems (Remedy / Jira) | Application Support | Debugging | CI/CD | xUnit | Moq | ADO.NET
+            I’m a <strong>Senior .NET Backend Developer</strong> and
+            <strong>L2/L3 Application Support Engineer</strong> based in Buenos Aires, Argentina.
+            I work mainly with <strong>ASP.NET Core</strong>, <strong>C#</strong>,
+            <strong>Entity Framework Core</strong>, <strong>SQL Server</strong> and
+            <strong>REST APIs</strong>, helping teams keep their .NET applications and services
+            stable in production.
         </p>
+
+        <p>
+            Throughout my career I’ve focused on understanding how systems behave in the real world:
+            troubleshooting production incidents, analysing root causes, improving performance and reliability,
+            and evolving existing .NET solutions without breaking what already works.
+        </p>
+
+        <p>
+            While my main focus is backend and support, I’m also comfortable working on the front end,
+            building responsive UIs with modern JavaScript and clean, maintainable layouts so users can
+            actually enjoy the features we ship.
+        </p>
+
+        <h3>What I enjoy working on</h3>
+        <ul>
+            <li>Designing and maintaining <strong>ASP.NET Core</strong> APIs and backend services.</li>
+            <li>Using <strong>EF Core</strong> and <strong>SQL Server</strong> to model data and tune queries.</li>
+            <li>L2/L3 <strong>application support</strong>: incident analysis, workarounds and long-term fixes.</li>
+            <li>Improving logging, error handling and observability in existing .NET applications.</li>
+            <li>Collaborating with teams to keep systems <strong>reliable, maintainable and production-ready</strong>.</li>
+        </ul>
     </div>
 </section>
 
@@ -59,20 +88,40 @@
     <div class="container">
         <h2>Featured Projects</h2>
 
-        <div class="cards">
+        <div class="cards grid">
+
+            <div class="card">
+                <div class="card-head">
+                    <h3>Incident Ops Center V 1.0</h3>
+                    <p class="stack">ASP.NET Core • EF Core 8 • AutoMapper • DTOs • xUnit tests</p>
+                </div>
+                <p class="card-text">
+                    IncidentOpsCenter – .NET 8 Web API for managing L2/L3 production incidents with layered architecture, EF Core (InMemory provider, easily swappable to SQL Server) InMemory, AutoMapper and xUnit tests.
+                </p>
+                <div class="card-actions">
+                    <button class="btn btn-alt" data-bs-toggle="modal" data-bs-target="#project7Modal">
+                        View Project
+                    </button>
+                </div>
+            </div>
+
             <div class="card">
                 <div class="card-head">
                     <h3>Reputation360 Platform</h3>
                     <p class="stack">ASP.NET Core • EF Core • Azure • SignalR</p>
                 </div>
                 <p class="card-text">
-                    SaaS solution for managing and improving company reputation.
-                    Features real-time dashboards, role-based access, and optimized performance.
+                    SaaS solution for managing and improving company reputation. Features real-time dashboards,
+                    role-based access and optimized performance.
                 </p>
                 <div class="card-actions">
-                    <a href="#" class="btn small" data-bs-toggle="modal" data-bs-target="#project1Modal">View Project</a>
+                    <button class="btn btn-alt" data-bs-toggle="modal" data-bs-target="#project1Modal">
+                        View Project
+                    </button>
                 </div>
             </div>
+
+
 
             <div class="card">
                 <div class="card-head">
@@ -80,43 +129,52 @@
                     <p class="stack">ASP.NET MVC • EF Core • Redis • React</p>
                 </div>
                 <p class="card-text">
-                    Productivity platform for technical teams.
+                    Productivity platform for technical teams. Workflow management, task delegation and team visibility
+                    powered by ASP.NET MVC, EF Core, Redis and a React front end.
                 </p>
                 <div class="card-actions">
-                    <a href="#" class="btn small" data-bs-toggle="modal" data-bs-target="#project2Modal">View Project</a>
+                    <button class="btn btn-alt" data-bs-toggle="modal" data-bs-target="#project2Modal">
+                        View Project
+                    </button>
                 </div>
             </div>
 
             <div class="card">
                 <div class="card-head">
                     <h3>InventoryPro Suite</h3>
-                    <p class="stack">ASP.NET Core • SQL Server • Blazor</p>
+                    <p class="stack">ASP.NET Core • Blazor • EF Core • SQL Server</p>
                 </div>
                 <p class="card-text">
-                    Enterprise inventory system with predictive analytics.
+                    Inventory and asset management system built with ASP.NET Core and Blazor, using EF Core
+                    and SQL Server for reliable data and ASP.NET Core Identity for secure access control.
                 </p>
                 <div class="card-actions">
-                    <a href="#" class="btn small" data-bs-toggle="modal" data-bs-target="#project3Modal">View Project</a>
+                    <button class="btn btn-alt" data-bs-toggle="modal" data-bs-target="#project3Modal">
+                        View Project
+                    </button>
                 </div>
             </div>
 
             <div class="card">
                 <div class="card-head">
                     <h3>FinanceGuard API</h3>
-                    <p class="stack">.NET 8 • Minimal API • JWT • EF Core</p>
+                    <p class="stack">.NET 8 • ASP.NET Core Web API • EF Core • Redis • Docker</p>
                 </div>
                 <p class="card-text">
-                    Secure financial API for fraud detection.
+                    Financial services backend with .NET 8 Web API, EF Core, DDD and CQRS, using JWT auth,
+                    Redis caching and Docker for cloud-ready deployment.
                 </p>
                 <div class="card-actions">
-                    <a href="#" class="btn small" data-bs-toggle="modal" data-bs-target="#project4Modal">View Project</a>
+                    <button class="btn btn-alt" data-bs-toggle="modal" data-bs-target="#project4Modal">
+                        View Project
+                    </button>
                 </div>
             </div>
-
 
         </div>
     </div>
 </section>
+
 
 <!-- MODALS (fuera de las secciones) -->
 <!-- MODALS (fuera del flujo principal, al final del body) -->
@@ -129,12 +187,65 @@
             </div>
             <div class="modal-body">
                 <p></p>
-                <p><strong>Role:</strong> Lead Developer & Architect</p>
-                <p><strong>Stack:</strong> ASP.NET Core • EF Core • Azure • SignalR</p>
+                <p>
+                    Reputation360 Platform is a real-time reputation and feedback monitoring solution built with
+                    <strong>ASP.NET Core</strong>, <strong>EF Core</strong>, <strong>Azure</strong> and
+                    <strong>SignalR</strong>, designed to track user feedback, sentiment and incidents across multiple channels.
+                </p>
+                <p>
+                    The backend exposes REST and SignalR endpoints to push live updates to connected clients, while
+                    EF Core and SQL Server store historical data for analysis, dashboards and reporting. Azure services
+                    are used for hosting, monitoring and alerting.
+                </p>
+                <p>
+                    This project reflects my focus on reliability, observability and production troubleshooting in .NET,
+                    combining real-time notifications with a clear view of system status for support and engineering teams.
+                </p>
+                <p class="stack">ASP.NET Core • EF Core • Azure • SignalR</p>
             </div>
         </div>
     </div>
 </div>
+
+<!-- Modal 7 -->
+<div class="modal fade" id="project7Modal" tabindex="-1" aria-labelledby="project7ModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content" style="background-color:#2a3440; color:#fff;">
+            <div class="modal-header">
+                <h5 class="modal-title" id="project7ModalLabel">Incident Ops Center V 1.0</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    Incident Ops Center V 1.0 is a
+                    REST API built with .NET 8 to manage L2/L3 production support incidents, designed as a reference project for Production Support / SRE / DevOps workflows.
+
+                    The solution is split into layers following a clean-ish architecture style:
+
+                    IncidentOpsCenter.Api – ASP.NET Core Web API (.NET 8)
+
+                    IncidentOpsCenter.Application – DTOs, service interfaces, and mapping profiles
+
+                    IncidentOpsCenter.Domain – Domain entities and enums (business rules)
+
+                    IncidentOpsCenter.Infrastructure – EF Core (InMemory provider, easily swappable to SQL Server), DbContext, concrete services
+
+                    IncidentOpsCenter.Tests – (reserved for unit/integration tests)
+                </p>
+                <p>
+                    You can check it out on my GitHub:
+                    <a href="https://github.com/stimpfldev/IncidentOpsCenter" target="_blank" rel="noopener noreferrer">
+                        IncidentOpsCenter repository
+                    </a>.
+                </p>
+                <p>
+                    <strong>Stack:</strong>  EF Core • .NET 8 • Xunit • AutoMapper • Layered architecture (Api / Application / Domain / Infrastructure)
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 <div class="modal fade" id="project2Modal" tabindex="-1" aria-labelledby="project2ModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">

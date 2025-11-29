@@ -125,6 +125,8 @@
 /* =========================
    HERO SECTION
 ========================= */
+/* HERO SECTION
+========================= */
 .hero {
     margin: 0;
     padding: 110px 0 80px;
@@ -155,8 +157,10 @@
     color: #c9c9c9;
     letter-spacing: .12em;
     text-transform: uppercase;
-    font-size: 1.6rem;
-    margin-bottom: 10px;
+    font-size: 0.9rem; /* antes 1.6rem */
+    font-weight: 600;
+    opacity: 0.85;
+    margin-bottom: 8px;
 }
 
 .hero h1 {
@@ -723,3 +727,152 @@ body::before {
         font-size: 0.9rem;
         border-width: 2px;
     }
+.hero h1 {
+    font-size: 2.6rem;
+    line-height: 1.2;
+    margin-bottom: 10px;
+}
+
+.hero .eyebrow {
+    font-size: 1.4rem;
+}
+#about p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+#projects h2 {
+    font-size: 1.6rem;
+}
+
+#projects .card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 4px;
+}
+
+#projects .card .stack {
+    font-size: 0.95rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+#projects .card-text {
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+.writing h2 {
+    color: #cfe8ff;
+    margin-bottom: 20px;
+    font-size: 1.6rem;
+}
+
+.writing .posts li {
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 1.9rem; /* más chico en pantallas chicas */
+    }
+}
+@media (max-width: 768px) {
+    .hero-flex {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-text {
+        text-align: center;
+    }
+
+    .hero-photo-block {
+        order: -1;
+    }
+
+    /* 🔽 Ajustes solo para mobile */
+    .hero h1 {
+        font-size: 2.1rem;
+    }
+
+    .hero .eyebrow {
+        font-size: 0.8rem;
+    }
+
+    .hero .sub {
+        font-size: 0.95rem;
+    }
+}
+/* Forzar tamaño del H1 del hero */
+.hero h1 {
+    font-size: 2rem !important; /* probá 2rem; si lo querés más chico, 1.8rem */
+    line-height: 1.2;
+    margin-bottom: 8px;
+}
+
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 1.6rem !important;
+    }
+}
+/* TAMAÑOS FINALES DEL HERO */
+.hero .eyebrow {
+    font-size: 1.2rem !important; /* probá 0.9, si lo querés bien discreto */
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+/* Ya teníamos el H1 forzado también */
+.hero h1 {
+    font-size: 1.9rem !important; /* podés bajar a 1.8 si sigue grande */
+    line-height: 1.2;
+    margin-bottom: 8px;
+}
+
+.hero .sub {
+    font-size: 0.95rem;
+}
+/* TAMAÑOS ABOUT */
+#about p {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+#about li {
+    font-size: 0.85rem;
+    line-height: 1.6;
+}
+/* Título de la sección About */
+#about h2 {
+    font-size: 1.7rem !important; /* probá 1.4; si lo querés más chico, 1.3 o 1.2 */
+    margin-bottom: 16px;
+}
+/* TAMAÑOS FINALES PROJECTS */
+#projects .card h3 {
+    font-size: 1.1rem !important; /* título de cada proyecto */
+    margin-bottom: 4px;
+}
+
+#projects .card .stack {
+    font-size: 0.8rem !important; /* línea de tecnologías */
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-weight: 600;
+    opacity: 0.9;
+}
+
+#projects .card-text {
+    font-size: 0.80rem !important; /* descripción corta dentro de la card */
+    line-height: 1.5;
+}
+/* TAMAÑOS DE TEXTO DENTRO DE LOS MODALS (PROJECTS + WRITING) */
+.modal .modal-body {
+    font-size: 0.8rem !important; /* probá 0.9; si lo querés aún más chico, 0.85 */
+    line-height: 1.6;
+}
+
+/* Título del modal ("TaskFlow Manager", "Reputation360 Platform", etc.) */
+.modal .modal-title {
+    font-size: 1.2rem !important;
+}

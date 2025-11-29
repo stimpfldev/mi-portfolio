@@ -138,3 +138,50 @@ if (logoutBtn) {
         }
     });
 }
+document.addEventListener("DOMContentLoaded", function () {
+
+    // 1) Si la página se cargó con un hash (#projects, #about, etc.), scrolleo y limpio la URL
+    if (window.location.hash) {
+        const hash = window.location.hash.substring(1); // saco el "#"
+        const target = document.getElementById(hash);
+        if (target) {
+            const offset = 80; // altura aprox. del navbar
+            const top = target.getBoundingClientRect().top + window.scrollY - offset;
+
+            window.scrollTo({
+                top,
+                behavior: 'smooth'
+            });
+        }
+
+        // 👉 Limpio el "#projects" de la URL
+        const cleanUrl = window.location.origin + window.location.pathname + window.location.search;
+        window.history.replaceState({}, '', cleanUrl);
+    }
+
+    // 2) Scroll suave para links con data-scroll (nav + botones)
+    const links = document.querySelectorAll('a[data-scroll]');
+
+    links.forEach(link => {
+        link.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            const targetId = this.getAttribute('data-scroll');
+            const target = document.getElementById(targetId);
+            if (!target) return;
+
+            const offset = 80;
+            const top = target.getBoundingClientRect().top + window.scrollY - offset;
+
+            window.scrollTo({
+                top,
+                behavior: 'smooth'
+            });
+
+            const cleanUrl = window.location.origin + window.location.pathname + window.location.search;
+            window.history.replaceState({}, '', cleanUrl);
+        });
+    });
+
+});
+

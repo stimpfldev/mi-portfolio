@@ -2,6 +2,10 @@ using PersonalWeb.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Puerto obligatorio para Railway
+var port = Environment.GetEnvironmentVariable("PORT") ?? "3000";
+builder.WebHost.UseUrls($"http://0.0.0.0:{port}");
+
 // MVC
 builder.Services.AddControllersWithViews();
 

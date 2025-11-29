@@ -1,30 +1,42 @@
 ﻿using SendGrid;
 using SendGrid.Helpers.Mail;
 
-public class EmailService
+namespace PersonalWeb.Services
 {
-    private readonly string _apiKey;
-
-    public EmailService()
+    public class EmailService
     {
-        _apiKey = Environment.GetEnvironmentVariable("SENDGRID_API_KEY");
+        private readonly string _apiKey;
 
-        if (string.IsNullOrEmpty(_apiKey))
+        public EmailService(IConfiguration config)
         {
-            throw new Exception("La API KEY de SendGrid no está configurada.");
+            _apiKey = Environment.GetEnvironmentVariable("SENDGRID_API_KEY")
+                     ?? config["SendGrid:ApiKey"];
         }
-    }
 
-    public async Task<bool> SendEmailAsync(string fromEmail, string fromName, string messageText)
-    {
-        var client = new SendGridClient(_apiKey);
+        public async Task<bool> SendEmailAsync(string fromEmail, string fromName, string messageText)
+        {
+            var client = new SendGridClient(_apiKey);
 
-        var from = new EmailAddress(fromEmail, fromName);
-        var to = new EmailAddress("TU_EMAIL_REAL@gmail.com", "Federico");
+            var to = new EmailAddress("federicosdev@gmail.com", "Fede Portfolio");
 
-        var msg = MailHelper.CreateSingleEmail(from, to, "Nuevo mensaje", messageText, messageText);
+            // 🔥 FROM válido (usá el que verificaste en SendGrid)
+            var from = new EmailAddress("federicosdev@gmail.com", "Portfolio Website");
 
-        var response = await client.SendEmailAsync(msg);
-        return response.IsSuccessStatusCode;
+            var subject = "Nuevo mensaje desde tu sitio web";
+
+            var body = $"Nombre: {fromName}\nEmail: {fromEmail}\nMensaje:\n{messageText}";
+
+            var msg = MailHelper.CreateSingleEmail(
+                from,
+                to,
+                subject,
+                body,
+                body
+            );
+
+            var response = await client.SendEmailAsync(msg);
+
+            return response.IsSuccessStatusCode;
+        }
     }
 }
