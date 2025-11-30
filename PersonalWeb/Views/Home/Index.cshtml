@@ -507,6 +507,39 @@ builder.Services.AddHttpClient("WeatherClient")
         </div>
     </div>
 </div>
+<div class="modal fade" id="article4Modal" tabindex="-1" aria-labelledby="article4ModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content" style="background-color:#2a3440; color:#fff;">
+            <div class="modal-header">
+                <h5 class="modal-title" id="article4ModalLabel">
+                    How to Diagnose a 500 Error in an ASP.NET Core API in Production
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" style="line-height:1.6;">
+                <p>
+                    When a <strong>500</strong> appears in production, I follow a simple path:
+                </p>
+
+                <ul>
+                    <li><strong>Scope the impact</strong> – single user, endpoint or system-wide?</li>
+                    <li><strong>Grab the correlation ID</strong> – from <code>X-Correlation-Id</code> or logs.</li>
+                    <li><strong>Check structured logs</strong> – endpoint, exception type, stack trace, key IDs.</li>
+                    <li><strong>Reproduce safely</strong> – same payload in staging/local, aligned config and DB.</li>
+                    <li><strong>Fix the root cause</strong> – unhandled exceptions, EF Core/SQL issues, misconfig, or failing external services.</li>
+                    <li><strong>Deploy, monitor, document</strong> – watch logs/metrics and record cause + fix.</li>
+                </ul>
+
+                <p>
+                    Over time, this turns 500s from panic into a repeatable, calm investigation process.
+                </p>
+
+                <p class="text-muted"><em>3 min read • Published Nov 30, 2025</em></p>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- Modal para "Building Resilient APIs with ASP.NET Core and Polly" -->
 <div class="modal fade" id="article3Modal" tabindex="-1" aria-labelledby="article3ModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">
@@ -562,6 +595,12 @@ builder.Services.AddHttpClient("WeatherClient")
     <div class="container">
         <h2>Writing</h2>
         <ul class="posts">
+            <li>
+                <a href="#" data-bs-toggle="modal" data-bs-target="#article4Modal">
+                    How to Diagnose a 500 Error in an ASP.NET Core API in Production
+                </a>
+                <span class="meta">3 min • Nov 30, 2025</span>
+            </li>
             <li>
                 <a href="#" data-bs-toggle="modal" data-bs-target="#article1Modal">Output Caching in .NET 8 — A Pragmatic Guide</a>
                 <span class="meta">5 min • Nov 10, 2025</span>
