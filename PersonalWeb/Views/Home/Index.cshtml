@@ -340,13 +340,13 @@
                     Instead of recalculating a view or API response on every request, .NET 8 can store and serve it directly from cache — dramatically reducing CPU, DB, and I/O usage.
                 </p>
 
-                <h6>🧠 When to Use It</h6>
+                <h6> When to Use It</h6>
                 <p>
                     Output caching shines for endpoints where the response remains the same for multiple users — such as public pages, product listings, or slow reports.
                     You can safely cache those responses for a short or long period and serve them instantly.
                 </p>
 
-                <h6>⚙️ How It Works</h6>
+                <h6> How It Works</h6>
                 <p>
                     .NET 8 introduces a modern middleware-based implementation that replaces the old <code>[ResponseCache]</code> attribute.
                     You simply register it once in <code>Program.cs</code> and use the <code>[OutputCache]</code> attribute wherever needed.
@@ -368,7 +368,7 @@ app.MapGet("/products", async (MyDbContext db) =>
 .CacheOutput(p => p.Expire(TimeSpan.FromSeconds(60))); // Cached for 1 min
 </code></pre>
 
-                <h6>🚀 Benefits</h6>
+                <h6> Benefits</h6>
                 <ul>
                     <li>🔹 Easy to enable — minimal configuration.</li>
                     <li>🔹 Great performance boost for static or semi-dynamic endpoints.</li>
@@ -376,13 +376,13 @@ app.MapGet("/products", async (MyDbContext db) =>
                     <li>🔹 Built directly into the ASP.NET Core middleware pipeline.</li>
                 </ul>
 
-                <h6>⚡ Real-World Tip</h6>
+                <h6> Real-World Tip</h6>
                 <p>
                     Combine Output Caching with <code>IMemoryCache</code> or <code>IDistributedCache</code> for layered performance.
                     Keep it short-lived (e.g., 30–120 seconds) to ensure the data stays fresh while still reducing load on the DB.
                 </p>
 
-                <h6>✅ Conclusion</h6>
+                <h6> Conclusion</h6>
                 <p>
                     Output Caching in .NET 8 is a simple yet powerful tool for boosting response times without adding infrastructure complexity.
                     In high-traffic apps, it can easily reduce backend load by 50–70% with just a few lines of configuration.
@@ -408,7 +408,7 @@ app.MapGet("/products", async (MyDbContext db) =>
                     But using EF efficiently requires discipline — especially in larger applications.
                 </p>
 
-                <h6>🏗️ Clean Architecture Context</h6>
+                <h6> Clean Architecture Context</h6>
                 <p>
                     EF Core works best when separated from your domain logic.
                     Instead of scattering queries inside controllers, move them into repositories or data services that your application layer can consume.
@@ -426,14 +426,14 @@ public interface IRepository&lt;T&gt; where T : class
 }
 </code></pre>
 
-                <h6>⚡ Common Pitfalls</h6>
+                <h6> Common Pitfalls</h6>
                 <ul>
                     <li>Mixing DbContext logic inside controllers.</li>
                     <li>Querying too much data (no pagination or filtering).</li>
                     <li>Forgetting to track entity states properly.</li>
                 </ul>
 
-                <h6>🚀 Recommended Pattern</h6>
+                <h6> Recommended Pattern</h6>
                 <p>
                     Keep your <code>DbContext</code> short-lived and scoped per request.
                     Use <code>AsNoTracking()</code> for read-only operations to improve performance.
@@ -446,7 +446,7 @@ var users = await _context.Users
     .ToListAsync();
 </code></pre>
 
-                <h6>✅ Key Takeaway</h6>
+                <h6> Key Takeaway</h6>
                 <p>
                     EF Core 8 is powerful — but only when used cleanly.
                     Separate concerns, use async patterns everywhere, and let EF handle what it does best: tracking and persistence.
@@ -472,7 +472,7 @@ var users = await _context.Users
                     <strong>Polly</strong>, integrated natively with ASP.NET Core, provides a powerful way to achieve this without cluttering your code.
                 </p>
 
-                <h6>🧩 What Is Polly?</h6>
+                <h6> What Is Polly?</h6>
                 <p>
                     Polly is a fault-handling library that helps you define retry, circuit-breaker, timeout, and fallback policies declaratively.
                 </p>
@@ -483,20 +483,20 @@ builder.Services.AddHttpClient("WeatherClient")
         p.WaitAndRetryAsync(3, attempt =&gt; TimeSpan.FromSeconds(Math.Pow(2, attempt))));
 </code></pre>
 
-                <h6>⚙️ Circuit Breaker Example</h6>
+                <h6> Circuit Breaker Example</h6>
 <pre><code>p.CircuitBreakerAsync(
     handledEventsAllowedBeforeBreaking: 5,
     durationOfBreak: TimeSpan.FromSeconds(30)
 );</code></pre>
 
-                <h6>✅ Benefits</h6>
+                <h6> Benefits</h6>
                 <ul>
                     <li>Improved reliability of API-to-API communication.</li>
                     <li>Reduced risk of cascading failures.</li>
                     <li>Better user experience under transient network issues.</li>
                 </ul>
 
-                <h6>🧠 Real-World Use</h6>
+                <h6> Real-World Use</h6>
                 <p>
                     Combine Polly with centralized logging (like Serilog) to monitor retries and circuit events.
                     You’ll quickly identify unstable dependencies before they become outages.
@@ -554,7 +554,7 @@ builder.Services.AddHttpClient("WeatherClient")
                     <strong>Polly</strong>, integrated natively with ASP.NET Core, provides a powerful way to achieve this without cluttering your code.
                 </p>
 
-                <h6>🧩 What Is Polly?</h6>
+                <h6> What Is Polly?</h6>
                 <p>
                     Polly is a fault-handling library that helps you define retry, circuit-breaker, timeout, and fallback policies declaratively.
                 </p>
@@ -565,20 +565,20 @@ builder.Services.AddHttpClient("WeatherClient")
         p.WaitAndRetryAsync(3, attempt =&gt; TimeSpan.FromSeconds(Math.Pow(2, attempt))));
 </code></pre>
 
-                <h6>⚙️ Circuit Breaker Example</h6>
+                <h6> Circuit Breaker Example</h6>
 <pre><code>p.CircuitBreakerAsync(
     handledEventsAllowedBeforeBreaking: 5,
     durationOfBreak: TimeSpan.FromSeconds(30)
 );</code></pre>
 
-                <h6>✅ Benefits</h6>
+                <h6> Benefits</h6>
                 <ul>
                     <li>Improved reliability of API-to-API communication.</li>
                     <li>Reduced risk of cascading failures.</li>
                     <li>Better user experience under transient network issues.</li>
                 </ul>
 
-                <h6>🧠 Real-World Use</h6>
+                <h6> Real-World Use</h6>
                 <p>
                     Combine Polly with centralized logging (like Serilog) to monitor retries and circuit events.
                     You’ll quickly identify unstable dependencies before they become outages.
